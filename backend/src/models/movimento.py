@@ -1,4 +1,4 @@
-
+from datetime import datetime
 class Movimentacao: 
     def __init__(self, peca_id, destinatario_id, data, quantidade): 
         self.id_movimento = None 
