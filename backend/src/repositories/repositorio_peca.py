@@ -13,32 +13,59 @@ class RepositorioPecas:
     def adicionar(self, nova_peca):
         if not self.api.ler_json():
             return False
-    
-        dados = self.api.dados
-        verifica_peca_existente = self.buscar_por_id(nova_peca["codigo"])
-
-        if verifica_peca_existente:
-            verifica_peca_existente["quantidade"] += nova_peca["quantidade"]
         else:
-            dados["pecas"].append(nova_peca)
-        
-        self.api.salvar_json()
-        return True
+            dados = self.api.dados
+            verifica_peca_existente = self.buscar_por_codigo(nova_peca["codigo"], dados)
 
-    def remover(self):
-        pass
+            if verifica_peca_existente:
+                verifica_peca_existente["quantidade"] += nova_peca["quantidade"]
+            else:
+                dados["pecas"].append(nova_peca)
 
-    def atualizar(self):
-        pass
+            self.api.salvar_json()
+            return True
 
-    def buscar_por_id(self, codigo):
+    def remover(self, codigo):
         if not self.api.ler_json():
-            return None
-
+            return False
+        
         else:
-            dado = self.api.dados
-            for peca in dado["pecas"]:
-                if peca["codigo"] ==  codigo:
-                    return peca
+            dados = self.api.dados
+            verifica_peca_existente = self.buscar_por_codigo(codigo, dados)
+
+            if verifica_peca_existente:
+                for peca in dados["pecas"]:
+                    if peca["codigo"] == codigo:
+                        dados["pecas"].remove(peca)
+                        self.api.salvar_json()
+                        return True
+        
+        return False
+
+    def atualizar(self, codigo, novos_dados):
+        if not self.api.ler_json():
+            return False
+        else:
+            dados = self.api.dados
+            verifica_peca_existente = self.buscar_por_codigo(codigo,dados)
+
+            if verifica_peca_existente:
+                for peca in dados["pecas"]:
+                    if peca["codigo"] == codigo:
+                        peca.update(novos_dados)
+                        self.api.salvar_json()
+                        return True
+                    
+        return False
+
+    def buscar_por_codigo(self, codigo,dados=None):
+        if dados is None:
+            if not self.api.ler_json():
+                return None
+            dados = self.api.dados
+
+        for peca in dados["pecas"]:
+            if peca["codigo"] == codigo:
+                return peca
 
         return None

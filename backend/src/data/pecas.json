@@ -52,59 +52,73 @@
     "unidades": [
         {
             "id": 1,
-            "nome": "Centro de Convivência Barreira do Triunfo"
+            "nome": "Centro de Convivência Barreira do Triunfo",
+            "endereco": ""
         },
         {
             "id": 2,
-            "nome": "Casa de Passagem Mista 2"
+            "nome": "Casa de Passagem Mista 2",
+            "endereco": ""
         },
         {
             "id": 3,
-            "nome": "Abordagem AMAC"
+            "nome": "Abordagem AMAC",
+            "endereco": ""
         },
         {
             "id": 4,
-            "nome": "Creche Ipiranga"
+            "nome": "Creche Ipiranga",
+            "endereco": ""
         },
         {
             "id": 5,
-            "nome": "Desktop de Reserva"
+            "nome": "Desktop de Reserva",
+            "endereco": "Sede AMAC"
         },
         {
             "id": 6,
-            "nome": "Creche Comunitária Duque de Caxias"
+            "nome": "Creche Comunitária Duque de Caxias",
+            "endereco": ""
         },
         {
             "id": 7,
-            "nome": "Desktop Sede Wania"
+            "nome": "Desktop Sede Wania",
+            "endereco": "Sede AMAC"
         },
         {
             "id": 8,
-            "nome": "Creche Comunitária Professora Denise dos Santos"
+            "nome": "Creche Comunitária Professora Denise dos Santos",
+            "endereco": ""
         },
         {
             "id": 9,
-            "nome": "Desktop Promad"
+            "nome": "Desktop Promad",
+            "endereco": "PROMAD"
         },
         {
             "id": 10,
-            "nome": "CC Santa Luzia"
+            "nome": "CC Santa Luzia",
+            "endereco": "Santa Luzia"
         },
         {
             "id": 11,
-            "nome": "CC Barreira do Triunfo"
+            "nome": "CC Barreira do Triunfo",
+            "endereco": "Barreira do Triunfo"
         },
         {
             "id": 12,
-            "nome": "Vivendas do Presente"
+            "nome": "Vivendas do Presente",
+            "endereco": ""
         },
         {
             "id": 13,
-            "nome": "CC Pessoa Idosa Técnico"
+            "nome": "CC Pessoa Idosa Técnico",
+            "endereco": ""
         },
         {
             "id": 14,
-            "nome": "CC Igrejinha"
+            "nome": "CC Igrejinha",
+            "endereco": ""
         }
     ],
     "movimentacoes": [
@@ -113,63 +127,160 @@
             "peca_id": 1,
             "unidade_id": 1,
             "quantidade": 4,
-            "data": "2026-02-04"
+            "data": "04/02/2026",
+            "ativo": true
         },
         {
             "id": 2,
             "peca_id": 1,
             "unidade_id": 2,
             "quantidade": 1,
-            "data": "2026-02-03"
+            "data": "03/02/2026",
+            "ativo": true
         },
         {
             "id": 3,
             "peca_id": 1,
             "unidade_id": 3,
             "quantidade": 1,
-            "data": "2026-02-04"
+            "data": "04/02/2026",
+            "ativo": true
         },
         {
             "id": 4,
             "peca_id": 7,
             "unidade_id": 3,
             "quantidade": 1,
-            "data": "2026-02-04"
+            "data": "04/02/2026",
+            "ativo": true
         },
         {
             "id": 5,
             "peca_id": 4,
             "unidade_id": 3,
             "quantidade": 1,
-            "data": "2026-02-04"
+            "data": "04/02/2026",
+            "ativo": true
         },
         {
             "id": 6,
             "peca_id": 3,
-            "unidade_id": 4,
+            "unidade_id": 3,
             "quantidade": 1,
-            "data": "2026-02-04"
+            "data": "04/02/2026",
+            "ativo": true
         },
         {
             "id": 7,
             "peca_id": 1,
-            "unidade_id": 5,
+            "unidade_id": 4,
             "quantidade": 1,
-            "data": "2026-02-02"
+            "data": "04/02/2026",
+            "ativo": true
         },
         {
             "id": 8,
-            "peca_id": 3,
-            "unidade_id": 10,
+            "peca_id": 5,
+            "unidade_id": 4,
             "quantidade": 1,
-            "data": "2026-04-14"
+            "data": "04/02/2026",
+            "ativo": true
         },
         {
             "id": 9,
+            "peca_id": 3,
+            "unidade_id": 4,
+            "quantidade": 1,
+            "data": "04/02/2026",
+            "ativo": true
+        },
+        {
+            "id": 10,
+            "peca_id": 1,
+            "unidade_id": 5,
+            "quantidade": 1,
+            "data": "02/02/2026",
+            "ativo": true
+        },
+        {
+            "id": 11,
+            "peca_id": 1,
+            "unidade_id": 6,
+            "quantidade": 1,
+            "data": "05/02/2026",
+            "ativo": true
+        },
+        {
+            "id": 12,
+            "peca_id": 1,
+            "unidade_id": 7,
+            "quantidade": 1,
+            "data": "16/03/2026",
+            "ativo": true
+        },
+        {
+            "id": 13,
+            "peca_id": 2,
+            "unidade_id": 9,
+            "quantidade": 1,
+            "data": "19/03/2026",
+            "ativo": true
+        },
+        {
+            "id": 14,
+            "peca_id": 3,
+            "unidade_id": 10,
+            "quantidade": 1,
+            "data": "14/04/2026",
+            "ativo": true
+        },
+        {
+            "id": 15,
             "peca_id": 2,
             "unidade_id": 10,
             "quantidade": 1,
-            "data": "2026-04-14"
+            "data": "14/04/2026",
+            "ativo": true
+        },
+        {
+            "id": 16,
+            "peca_id": 4,
+            "unidade_id": 11,
+            "quantidade": 1,
+            "data": "22/04/2026",
+            "ativo": true
+        },
+        {
+            "id": 17,
+            "peca_id": 1,
+            "unidade_id": 11,
+            "quantidade": 1,
+            "data": "22/04/2026",
+            "ativo": true
+        },
+        {
+            "id": 18,
+            "peca_id": 3,
+            "unidade_id": 12,
+            "quantidade": 1,
+            "data": "07/05/2026",
+            "ativo": true
+        },
+        {
+            "id": 19,
+            "peca_id": 8,
+            "unidade_id": 12,
+            "quantidade": 1,
+            "data": "07/05/2026",
+            "ativo": true
+        },
+        {
+            "id": 20,
+            "peca_id": 2,
+            "unidade_id": 14,
+            "quantidade": 1,
+            "data": "02/06/2026",
+            "ativo": true
         }
     ]
 }
