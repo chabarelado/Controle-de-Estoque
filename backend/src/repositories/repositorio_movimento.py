@@ -1,8 +1,6 @@
 
 
 class RepositorioMovimentacao:
-    def __init__(self, caminho):
-        self.caminho_json = caminho
 
     def registrar_movimento(self):
         pass

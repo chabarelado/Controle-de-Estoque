@@ -1,5 +1,4 @@
 
-
 class Destinatario:
     def __init__(self, nome, endereco):
         self.nome = nome

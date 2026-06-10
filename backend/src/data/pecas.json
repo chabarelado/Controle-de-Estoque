@@ -1,135 +1,175 @@
 {
-  "pecas": [
-    {
-      "id": 1,
-      "codigo": "P001",
-      "nome": "Fonte 550W PK PCWELLS",
-      "quantidade": 9
-    },
-    {
-      "id": 2,
-      "codigo": "P002",
-      "nome": "Bateria 2032 Elgin",
-      "quantidade": 36
-    },
-    {
-      "id": 3,
-      "codigo": "P003",
-      "nome": "SSD 256GB HIKVISION",
-      "quantidade": 13
-    },
-    {
-      "id": 4,
-      "codigo": "P004",
-      "nome": "Placa mãe H110M Socket LGA 1151",
-      "quantidade": 3
-    },
-    {
-      "id": 5,
-      "codigo": "P005",
-      "nome": "Placa mãe H61M Socket LGA 1155",
-      "quantidade": 4
-    },
-    {
-      "id": 6,
-      "codigo": "P006",
-      "nome": "Pasta Térmica Silver 5G",
-      "quantidade": 5
-    },
-    {
-      "id": 7,
-      "codigo": "P007",
-      "nome": "Memoria RAM 8GB DDR4",
-      "quantidade": 6
-    },
-    {
-      "id": 8,
-      "codigo": "P008",
-      "nome": "Memoria RAM 4GB DDR3",
-      "quantidade": 1
-    }
-  ],
-
-  "unidades": [
-    { "id": 1, "nome": "Centro de Convivência Barreira do Triunfo" },
-    { "id": 2, "nome": "Casa de Passagem Mista 2" },
-    { "id": 3, "nome": "Abordagem AMAC" },
-    { "id": 4, "nome": "Creche Ipiranga" },
-    { "id": 5, "nome": "Desktop de Reserva" },
-    { "id": 6, "nome": "Creche Comunitária Duque de Caxias" },
-    { "id": 7, "nome": "Desktop Sede Wania" },
-    { "id": 8, "nome": "Creche Comunitária Professora Denise dos Santos" },
-    { "id": 9, "nome": "Desktop Promad" },
-    { "id": 10, "nome": "CC Santa Luzia" },
-    { "id": 11, "nome": "CC Barreira do Triunfo" },
-    { "id": 12, "nome": "Vivendas do Presente" },
-    { "id": 13, "nome": "CC Pessoa Idosa Técnico" },
-    { "id": 14, "nome": "CC Igrejinha" }
-  ],
-
-  "movimentacoes": [
-    {
-      "id": 1,
-      "peca_id": 1,
-      "unidade_id": 1,
-      "quantidade": 4,
-      "data": "2026-02-04"
-    },
-    {
-      "id": 2,
-      "peca_id": 1,
-      "unidade_id": 2,
-      "quantidade": 1,
-      "data": "2026-02-03"
-    },
-    {
-      "id": 3,
-      "peca_id": 1,
-      "unidade_id": 3,
-      "quantidade": 1,
-      "data": "2026-02-04"
-    },
-    {
-      "id": 4,
-      "peca_id": 7,
-      "unidade_id": 3,
-      "quantidade": 1,
-      "data": "2026-02-04"
-    },
-    {
-      "id": 5,
-      "peca_id": 4,
-      "unidade_id": 3,
-      "quantidade": 1,
-      "data": "2026-02-04"
-    },
-    {
-      "id": 6,
-      "peca_id": 3,
-      "unidade_id": 4,
-      "quantidade": 1,
-      "data": "2026-02-04"
-    },
-    {
-      "id": 7,
-      "peca_id": 1,
-      "unidade_id": 5,
-      "quantidade": 1,
-      "data": "2026-02-02"
-    },
-    {
-      "id": 8,
-      "peca_id": 3,
-      "unidade_id": 10,
-      "quantidade": 1,
-      "data": "2026-04-14"
-    },
-    {
-      "id": 9,
-      "peca_id": 2,
-      "unidade_id": 10,
-      "quantidade": 1,
-      "data": "2026-04-14"
-    }
-  ]
+    "pecas": [
+        {
+            "id": 1,
+            "codigo": "P001",
+            "nome": "Fonte 550W PK PCWELLS",
+            "quantidade": 24
+        },
+        {
+            "id": 2,
+            "codigo": "P002",
+            "nome": "Bateria 2032 Elgin",
+            "quantidade": 36
+        },
+        {
+            "id": 3,
+            "codigo": "P003",
+            "nome": "SSD 256GB HIKVISION",
+            "quantidade": 13
+        },
+        {
+            "id": 4,
+            "codigo": "P004",
+            "nome": "Placa mãe H110M Socket LGA 1151",
+            "quantidade": 3
+        },
+        {
+            "id": 5,
+            "codigo": "P005",
+            "nome": "Placa mãe H61M Socket LGA 1155",
+            "quantidade": 4
+        },
+        {
+            "id": 6,
+            "codigo": "P006",
+            "nome": "Pasta Térmica Silver 5G",
+            "quantidade": 5
+        },
+        {
+            "id": 7,
+            "codigo": "P007",
+            "nome": "Memoria RAM 8GB DDR4",
+            "quantidade": 6
+        },
+        {
+            "id": 8,
+            "codigo": "P008",
+            "nome": "Memoria RAM 4GB DDR3",
+            "quantidade": 1
+        }
+    ],
+    "unidades": [
+        {
+            "id": 1,
+            "nome": "Centro de Convivência Barreira do Triunfo"
+        },
+        {
+            "id": 2,
+            "nome": "Casa de Passagem Mista 2"
+        },
+        {
+            "id": 3,
+            "nome": "Abordagem AMAC"
+        },
+        {
+            "id": 4,
+            "nome": "Creche Ipiranga"
+        },
+        {
+            "id": 5,
+            "nome": "Desktop de Reserva"
+        },
+        {
+            "id": 6,
+            "nome": "Creche Comunitária Duque de Caxias"
+        },
+        {
+            "id": 7,
+            "nome": "Desktop Sede Wania"
+        },
+        {
+            "id": 8,
+            "nome": "Creche Comunitária Professora Denise dos Santos"
+        },
+        {
+            "id": 9,
+            "nome": "Desktop Promad"
+        },
+        {
+            "id": 10,
+            "nome": "CC Santa Luzia"
+        },
+        {
+            "id": 11,
+            "nome": "CC Barreira do Triunfo"
+        },
+        {
+            "id": 12,
+            "nome": "Vivendas do Presente"
+        },
+        {
+            "id": 13,
+            "nome": "CC Pessoa Idosa Técnico"
+        },
+        {
+            "id": 14,
+            "nome": "CC Igrejinha"
+        }
+    ],
+    "movimentacoes": [
+        {
+            "id": 1,
+            "peca_id": 1,
+            "unidade_id": 1,
+            "quantidade": 4,
+            "data": "2026-02-04"
+        },
+        {
+            "id": 2,
+            "peca_id": 1,
+            "unidade_id": 2,
+            "quantidade": 1,
+            "data": "2026-02-03"
+        },
+        {
+            "id": 3,
+            "peca_id": 1,
+            "unidade_id": 3,
+            "quantidade": 1,
+            "data": "2026-02-04"
+        },
+        {
+            "id": 4,
+            "peca_id": 7,
+            "unidade_id": 3,
+            "quantidade": 1,
+            "data": "2026-02-04"
+        },
+        {
+            "id": 5,
+            "peca_id": 4,
+            "unidade_id": 3,
+            "quantidade": 1,
+            "data": "2026-02-04"
+        },
+        {
+            "id": 6,
+            "peca_id": 3,
+            "unidade_id": 4,
+            "quantidade": 1,
+            "data": "2026-02-04"
+        },
+        {
+            "id": 7,
+            "peca_id": 1,
+            "unidade_id": 5,
+            "quantidade": 1,
+            "data": "2026-02-02"
+        },
+        {
+            "id": 8,
+            "peca_id": 3,
+            "unidade_id": 10,
+            "quantidade": 1,
+            "data": "2026-04-14"
+        },
+        {
+            "id": 9,
+            "peca_id": 2,
+            "unidade_id": 10,
+            "quantidade": 1,
+            "data": "2026-04-14"
+        }
+    ]
 }
