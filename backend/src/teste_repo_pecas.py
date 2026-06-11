@@ -6,7 +6,6 @@ repo = RepositorioPecas()
 print("=" * 50)
 print("LISTANDO PEÇAS")
 print("=" * 50)
-
 print(repo.listar())
 
 print("\n" + "=" * 50)
@@ -20,21 +19,41 @@ nova_peca = Peca(
     quantidade=10
 )
 
-print(vars(nova_peca))
+print(nova_peca.dicionario())
 
 print("\n" + "=" * 50)
 print("ADICIONANDO PEÇA")
 print("=" * 50)
 
-resultado = repo.adicionar(
-    nova_peca.dicionario()
-)
-
-print(f"Resultado: {resultado}")
+resultado = repo.adicionar(nova_peca.dicionario())
+print("Resultado:", resultado)
 
 print("\n" + "=" * 50)
-print("BUSCANDO PEÇA")
+print("BUSCANDO POR CÓDIGO")
 print("=" * 50)
+
+peca = repo.buscar_por_codigo("TESTE001")
+print(peca)
+
+print("\n" + "=" * 50)
+print("BUSCANDO POR NOME")
+print("=" * 50)
+
+peca = repo.buscar_por_nome("Peça de Teste")
+print(peca)
+
+print("\n" + "=" * 50)
+print("PESQUISANDO")
+print("=" * 50)
+
+resultado_pesquisa = repo.pesquisar("TESTE")
+print(resultado_pesquisa)
+
+print("\n" + "=" * 50)
+print("ADICIONANDO MESMA PEÇA NOVAMENTE")
+print("=" * 50)
+
+repo.adicionar(nova_peca.dicionario())
 
 peca = repo.buscar_por_codigo("TESTE001")
 print(peca)
@@ -47,29 +66,25 @@ resultado = repo.atualizar(
     "TESTE001",
     {
         "nome": "Peça de Teste Atualizada",
-        "quantidade": 20
+        "quantidade": 50
     }
 )
 
-print(f"Resultado: {resultado}")
-
-peca = repo.buscar_por_codigo("TESTE001")
-print(peca)
+print("Resultado:", resultado)
+print(repo.buscar_por_codigo("TESTE001"))
 
 print("\n" + "=" * 50)
 print("REMOVENDO PEÇA")
 print("=" * 50)
 
 resultado = repo.remover("TESTE001")
-
-print(f"Resultado: {resultado}")
+print("Resultado:", resultado)
 
 print("\n" + "=" * 50)
 print("BUSCANDO APÓS REMOÇÃO")
 print("=" * 50)
 
-peca = repo.buscar_por_codigo("TESTE001")
-print(peca)
+print(repo.buscar_por_codigo("TESTE001"))
 
 print("\n" + "=" * 50)
 print("LISTA FINAL")

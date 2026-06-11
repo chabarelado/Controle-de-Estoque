@@ -14,5 +14,5 @@ class RepositorioMovimentacao:
     def atualizar(self, id):
         pass
 
-    def buscar_por_id(self, id):
+    def buscar_por_nome(self, nome, dados=None):
         pass
