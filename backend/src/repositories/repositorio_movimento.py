@@ -30,7 +30,7 @@ class RepositorioMovimentacao:
         movimentos = dados["movimentos"]
 
         if not movimentos:
-            return False
+            return 1
 
         return max(movi["id"] for movi in movimentos) + 1
 
@@ -43,15 +43,22 @@ class RepositorioMovimentacao:
     def desativar(self, id):
         pass
 
-    def cancelar_movimento(self, dados=None):
+    def cancelar_movimento(self, id,dados=None):
         if dados is None:
             if not self.api.ler_json():
                 return False
 
             dados = self.api.dados
 
-        verifica_mov = self.buscar_movimento(id, dados)
-        pass
+        verifica_mov = self.buscar_por_id(id, dados)
+
+        if not verifica_mov:
+            return False
+
+        dados["movimentos"].remove(verifica_mov)
+        self.api.salvar_json()
+
+        return True
 
     def buscar_por_id(self,id, dados=None):
         if dados is None:
@@ -65,9 +72,51 @@ class RepositorioMovimentacao:
         
         return None
 
-    def buscar_por_peca(self, nome=None, id=None, dados=None):
-        pass
+    def pesquisar(self, termo,dados=None):
+        if dados is None:
+            if not self.api.ler_json():
+                return []
+            dados = self.api.dados
+
+        resultado_da_busca = []
+
+        for movimento in dados["movimentos"]:
+            if (
+                str(movimento["id"]) == str(termo) 
+                or str(movimento["peca_id"]) == str(termo)
+                or str(movimento["destinatario_id"]) == str(termo)
+                or termo in movimento["data"]
+            ):
+                resultado_da_busca.append(movimento)
+
+        return resultado_da_busca
+
+
+    def buscar_por_peca(self,id, dados=None):
+        if dados is None:
+            if not self.api.ler_json():
+                return None
+            dados = self.api.dados
+        
+        resultado_da_busca = []
+
+        for peca_id in dados["movimentos"]:
+            if peca_id["peca_id"] == id:
+                resultado_da_busca.append(peca_id)
+            
+        return resultado_da_busca
     
-    def buscar_por_destinatario(self, nome=None, id=None, dados=None):
-        pass
+    def buscar_por_destinatario(self, id, dados=None):
+        if dados is None:
+            if not self.api.ler_json():
+                return None
+            dados = self.api.dados
+        
+        resultado_da_busca = []
+
+        for destinatario_id in dados["movimentos"]:
+            if destinatario_id["unidade_id"] == id:
+                resultado_da_busca.append(destinatario_id)
+
+        return resultado_da_busca
 
