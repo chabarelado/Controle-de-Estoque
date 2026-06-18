@@ -1,6 +1,4 @@
 from api.api import Api
-from repositories.repositorio_destinatario import RepositorioDestinatario
-from repositories.repositorio_peca import RepositorioPecas
 
 class RepositorioMovimentacao:
     def __init__(self):
@@ -13,7 +11,7 @@ class RepositorioMovimentacao:
         dados = self.api.dados
         novo_movimento["id"] = self.proximo_id(dados)
 
-        try:
+        try: 
             dados["movimentos"].append(novo_movimento)
             return self.api.salvar_json()
         except Exception as e:
@@ -40,8 +38,21 @@ class RepositorioMovimentacao:
         
         return self.api.dados["movimentos"]
 
-    def desativar(self, id):
-        pass
+    def desativar(self, id, dados=None):
+        if dados is None:
+            if not self.api.ler_json():
+                return False
+            dados = self.api.dados
+        
+        verifica_mov = self.buscar_por_id(id, dados)
+
+        if not verifica_mov:
+            return False
+        
+        verifica_mov["ativo"] = False
+        self.api.salvar_json()
+
+        return True
 
     def cancelar_movimento(self, id,dados=None):
         if dados is None:
@@ -84,7 +95,7 @@ class RepositorioMovimentacao:
             if (
                 str(movimento["id"]) == str(termo) 
                 or str(movimento["peca_id"]) == str(termo)
-                or str(movimento["destinatario_id"]) == str(termo)
+                or str(movimento["unidade_id"]) == str(termo)
                 or termo in movimento["data"]
             ):
                 resultado_da_busca.append(movimento)

@@ -8,12 +8,12 @@ class Movimentacao:
         self.quantidade = quantidade 
         self.ativo = False 
 
-        def dicionario(self): 
-            return { 
-                "id": self.id_movimento, 
-                "peca_id": self.peca_id, 
-                "unidade_id": self.destinatario_id, 
-                "quantidade": self.quantidade, 
-                "data": self.data.strftime("%d/%m/%Y"),
-                "ativo": self.ativo
-            }
+    def dicionario(self): 
+        return { 
+            "id": self.id_movimento, 
+            "peca_id": self.peca_id, 
+            "unidade_id": self.destinatario_id, 
+            "quantidade": self.quantidade, 
+            "data": self.data,
+            "ativo": self.ativo
+        }

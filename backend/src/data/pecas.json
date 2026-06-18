@@ -121,7 +121,7 @@
             "endereco": ""
         }
     ],
-    "movimentacoes": [
+    "movimentos": [
         {
             "id": 1,
             "peca_id": 1,
@@ -281,6 +281,14 @@
             "quantidade": 1,
             "data": "02/06/2026",
             "ativo": true
+        },
+        {
+            "id": 21,
+            "peca_id": 1,
+            "unidade_id": 5,
+            "quantidade": 2,
+            "data": "18/06/2026",
+            "ativo": false
         }
     ]
 }
