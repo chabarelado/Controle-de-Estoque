@@ -78,7 +78,7 @@ class RepositorioMovimentacao:
             dados = self.api.dados
         
         for movimento in dados["movimentos"]:
-            if id == movimento["id"]:
+            if int(id) == int(movimento["id"]):
                 return movimento
         
         return None
@@ -96,7 +96,7 @@ class RepositorioMovimentacao:
                 str(movimento["id"]) == str(termo) 
                 or str(movimento["peca_id"]) == str(termo)
                 or str(movimento["unidade_id"]) == str(termo)
-                or termo in movimento["data"]
+                or str(termo) in str(movimento["data"])
             ):
                 resultado_da_busca.append(movimento)
 

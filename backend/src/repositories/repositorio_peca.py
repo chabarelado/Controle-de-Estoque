@@ -1,7 +1,4 @@
 from api.api import Api
-from repositories.repositorio_movimento import RepositorioMovimentacao
-
-
 class RepositorioPecas:
     def __init__(self):
         self.api = Api()

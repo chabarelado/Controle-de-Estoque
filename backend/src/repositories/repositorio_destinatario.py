@@ -1,5 +1,4 @@
 from api.api import Api
-from repositories.repositorio_movimento import RepositorioMovimentacao
 
 class RepositorioDestinatario:
     def __init__(self):
