@@ -46,7 +46,7 @@ class RepositorioMovimentacao:
         
         verifica_mov = self.buscar_por_id(id, dados)
 
-        if not verifica_mov:
+        if not verifica_mov["ativo"]:
             return False
         
         verifica_mov["ativo"] = False
@@ -96,7 +96,7 @@ class RepositorioMovimentacao:
                 str(movimento["id"]) == str(termo) 
                 or str(movimento["peca_id"]) == str(termo)
                 or str(movimento["unidade_id"]) == str(termo)
-                or str(termo) in str(movimento["data"])
+                or str(termo) in movimento["data"]
             ):
                 resultado_da_busca.append(movimento)
 

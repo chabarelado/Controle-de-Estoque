@@ -17,6 +17,8 @@ class RepositorioPecas:
         verifica_peca_existente = self.buscar_por_codigo(nova_peca["codigo"], dados)
 
         if verifica_peca_existente:
+            if verifica_peca_existente["nome"] != nova_peca["nome"]:
+                    return False
             verifica_peca_existente["quantidade"] += nova_peca["quantidade"]
         else:
             dados["pecas"].append(nova_peca)
