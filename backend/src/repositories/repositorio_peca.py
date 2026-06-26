@@ -120,3 +120,16 @@ class RepositorioPecas:
                 resultado_da_busca.append(peca)
 
         return resultado_da_busca        
+    
+    def proximo_id(self,dados=None):
+        if dados is None:
+            if not self.api.ler_json():
+                return False
+            dados = self.api.dados
+
+        pecas = dados["pecas"]
+
+        if not pecas:
+            return 1
+        
+        return max(peca["id"] for peca in pecas) + 1
