@@ -94,8 +94,31 @@ class EstoqueService:
         return True, "Movimento registrado com sucesso!"
     
 
-    def desativar_movimento(self):
-        pass
+    def desativar_movimento(self, movimento_id ):
+
+        movimento = self.repo_movi.buscar_por_id(movimento_id)
+
+        if not movimento:
+            return False, "Movimento não encontrado."
+        
+        if not movimento["ativo"]:
+            return False, "Moviment ja esta cancelado."
+        
+        peca = self.repo_peca.buscar_por_id(movimento["peca_id"])
+
+        if not peca:
+            return False, "Peca não encontrada."
+        
+        atualiza_quantidade = peca["quantidade"] + movimento["quantidade"]
+
+        if not self.repo_peca.atualizar(peca["codigo"], {"quantidade":atualiza_quantidade}):
+            return False, "Erro ao atualizar estoque."
+
+        if not self.repo_movi.cancelar_movimento(movimento_id):
+            return False, "Erro ao cancelar movimento."
+        
+        return True, "Movimentação cancelada com sucesso."
+
     
 #===================================================================================================================
 
