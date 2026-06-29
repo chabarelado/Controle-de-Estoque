@@ -1,12 +1,12 @@
 from datetime import datetime
 class Movimentacao: 
-    def __init__(self, peca_id, destinatario_id, data, quantidade): 
+    def __init__(self, peca_id, destinatario_id, data, quantidade, ativo=False): 
         self.id_movimento = None 
         self.peca_id = peca_id 
         self.destinatario_id = destinatario_id 
         self.data = data or datetime.now() 
         self.quantidade = quantidade 
-        self.ativo = False 
+        self.ativo = ativo
 
     def dicionario(self): 
         return { 

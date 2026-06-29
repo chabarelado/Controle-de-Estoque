@@ -6,15 +6,21 @@ from models.pecas import Peca
 from models.destinatario import Destinatario
 from models.movimento import Movimentacao
 
-class Service:
+class EstoqueService:
     def __init__(self):
         self.repo_movi = RepositorioMovimentacao()
         self.repo_peca = RepositorioPecas()
         self.repo_unid = RepositorioDestinatario()
 
-    def cadastrar_peca(self, nome='', codigo='', quantidade=0):
+    def cadastrar_peca(self, nome, codigo, quantidade=0):
 
-        if not nome or not codigo or quantidade == 0:
+        if not nome.strip():
+            return False
+
+        if not codigo.strip():
+            return False
+
+        if quantidade <= 0:
             return False
 
         if self.repo_peca.buscar_por_codigo(codigo) or self.repo_peca.buscar_por_nome(nome):
@@ -24,18 +30,97 @@ class Service:
         
         nova_peca = Peca(id=peca_id, nome=nome, codigo=codigo, quantidade=quantidade)
         
-        self.repo_peca.adicionar(nova_peca.dicionario())
+        return self.repo_peca.adicionar(nova_peca.dicionario())
 
-    def registar_entrada(self):
+    def remover_peca(self):
         pass
-
-    def registrar_saida(self):
-        pass 
     
-    def cancelar_movimento(self):
+    def editar_peca(self):
         pass
+
+#===================================================================================================================
+    
+    def cadastrar_unidade(self, nome, endereco):
+        if not nome.strip():
+            return False
+
+        if not endereco.strip():
+            return False
+        
+        if self.repo_unid.buscar_por_nome(nome):
+            return False
+        
+        proximo_id = self.repo_unid.proximo_id()
+        nova_unidade = Destinatario(id= proximo_id, nome=nome, endereco=endereco)
+
+        return self.repo_unid.adicionar(nova_unidade.dicionario())
+    
+    def remover_unidade(self):
+        pass
+    
+    def editar_unidade(self):
+        pass
+
+#===================================================================================================================
+
+    def registrar_movimento(self, peca_id, unidade_id, quantidade):
+
+        if quantidade <= 0:
+            return False, "Quantidade inválida."
+
+        peca = self.repo_peca.buscar_por_id(peca_id)
+        unidade = self.repo_unid.buscar_por_id(unidade_id)
+
+        if not peca:
+            return False, "Peça não encontrada."
+        
+        if not unidade:
+            return False, "Unidade não encontrada."
+        
+        if peca["quantidade"] < quantidade:
+            return False, "Estoque insuficiente."
+        
+        nova_quantidade = peca["quantidade"] - quantidade
+        
+        if not self.repo_peca.atualizar(peca["codigo"], {"quantidade":nova_quantidade}):
+            return False, "Não foi possível atualizar o estoque."
+        
+        movimento = Movimentacao(peca_id=peca_id, destinatario_id=unidade_id, quantidade=quantidade, ativo=True)
+
+        if not self.repo_movi.adicionar(movimento.dicionario()):
+            self.repo_peca.atualizar(peca["codigo"], {"quantidade": peca["quantidade"]})
+            return False, "Não foi possivel registrar."
+        
+        return True, "Movimento registrado com sucesso!"
+    
+
+    def desativar_movimento(self):
+        pass
+    
+#===================================================================================================================
 
     def pesquisar_peca(self):
-        pass 
-    
-    
+        pass
+
+    def pesquisar_unidade(self):
+        pass
+
+    def pesquisar_movimento(self):
+        pass
+
+#===================================================================================================================
+
+    def listar_pecas(self):
+        pass
+
+    def listar_unidades(self):
+        pass
+
+    def lista_movimentos_ativos(self):
+        pass
+
+    def listar_movimentos_ativos(self):
+        pass
+
+    def listar_todos_movimentos(self):
+        pass

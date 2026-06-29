@@ -113,3 +113,16 @@ class RepositorioDestinatario:
                 resultado_da_busca.append(destinatario)
 
         return resultado_da_busca        
+    
+    def proximo_id(self,dados=None):
+        if dados is None:
+            if not self.api.ler_json():
+                return False
+            dados = self.api.dados
+
+        unidades = dados["unidades"]
+
+        if not unidades:
+            return 1
+        
+        return max(unidade["id"] for unidade in unidades) + 1
