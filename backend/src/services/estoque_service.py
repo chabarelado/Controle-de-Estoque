@@ -81,11 +81,10 @@ class EstoqueService:
             return False, "Estoque insuficiente."
         
         nova_quantidade = peca["quantidade"] - quantidade
+        movimento = Movimentacao(peca_id=peca_id, destinatario_id=unidade_id, quantidade=quantidade, ativo=True)
         
         if not self.repo_peca.atualizar(peca["codigo"], {"quantidade":nova_quantidade}):
             return False, "Não foi possível atualizar o estoque."
-        
-        movimento = Movimentacao(peca_id=peca_id, destinatario_id=unidade_id, quantidade=quantidade, ativo=True)
 
         if not self.repo_movi.adicionar(movimento.dicionario()):
             self.repo_peca.atualizar(peca["codigo"], {"quantidade": peca["quantidade"]})
@@ -94,7 +93,7 @@ class EstoqueService:
         return True, "Movimento registrado com sucesso!"
     
 
-    def desativar_movimento(self, movimento_id ):
+    def cancelar_movimento(self, movimento_id ):
 
         movimento = self.repo_movi.buscar_por_id(movimento_id)
 
@@ -122,28 +121,42 @@ class EstoqueService:
     
 #===================================================================================================================
 
-    def pesquisar_peca(self):
-        pass
+    def pesquisar_peca(self, termo):
+        return self.repo_peca.pesquisar(termo)
 
-    def pesquisar_unidade(self):
-        pass
+    def pesquisar_unidade(self, termo):
+        return self.repo_unid.pesquisar(termo)
 
-    def pesquisar_movimento(self):
-        pass
+    def pesquisar_movimento(self,termo):
+        return self.repo_movi.pesquisar(termo)
 
 #===================================================================================================================
 
     def listar_pecas(self):
-        pass
+        return self.repo_peca.listar()
 
     def listar_unidades(self):
-        pass
+        return self.repo_unid.listar()
 
     def lista_movimentos_ativos(self):
-        pass
+        movimentos = self.listar_todos_movimentos()
+        movimentos_ativos = []
 
-    def listar_movimentos_ativos(self):
-        pass
+        for movi in movimentos:
+            if movi["ativo"]:
+                movimentos_ativos.append(movi)
+
+        return movimentos_ativos
+    
+    def lista_movimentos_cancelados(self):
+        movimentos = self.listar_todos_movimentos()
+        movimentos_cancelados = []
+
+        for movi in movimentos:
+            if not movi["ativo"]:
+                movimentos_cancelados.append(movi)
+
+        return movimentos_cancelados
 
     def listar_todos_movimentos(self):
-        pass
+        return self.repo_movi.listar()
