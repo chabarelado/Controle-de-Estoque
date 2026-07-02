@@ -24,5 +24,5 @@ class Api:
                 json.dump(self.dados, arquivo, indent=4, ensure_ascii=False)
                 return True
         except Exception as erro:
-            print("Erro ao salvar!")
+            print(f"Erro ao salvar! {erro}")
             return False

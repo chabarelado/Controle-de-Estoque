@@ -1,10 +1,10 @@
 from datetime import datetime
 class Movimentacao: 
-    def __init__(self, peca_id, destinatario_id, data, quantidade, ativo=False): 
+    def __init__(self, peca_id, destinatario_id, quantidade, ativo=False): 
         self.id_movimento = None 
         self.peca_id = peca_id 
         self.destinatario_id = destinatario_id 
-        self.data = data or datetime.now() 
+        self.data = datetime.now().strftime("%d/%m/%Y %H:%M:%S") 
         self.quantidade = quantidade 
         self.ativo = ativo
 

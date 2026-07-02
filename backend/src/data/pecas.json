@@ -4,7 +4,7 @@
             "id": 1,
             "codigo": "P001",
             "nome": "Fonte 550W PK PCWELLS",
-            "quantidade": 24
+            "quantidade": 14
         },
         {
             "id": 2,
@@ -122,14 +122,6 @@
         }
     ],
     "movimentos": [
-        {
-            "id": 1,
-            "peca_id": 1,
-            "unidade_id": 1,
-            "quantidade": 4,
-            "data": "04/02/2026",
-            "ativo": true
-        },
         {
             "id": 2,
             "peca_id": 1,
@@ -288,7 +280,47 @@
             "unidade_id": 5,
             "quantidade": 2,
             "data": "18/06/2026",
-            "ativo": false
+            "ativo": true
+        },
+        {
+            "id": 22,
+            "peca_id": 1,
+            "unidade_id": 1,
+            "quantidade": 2,
+            "data": "02/07/2026 15:02:08",
+            "ativo": true
+        },
+        {
+            "id": 24,
+            "peca_id": 1,
+            "unidade_id": 1,
+            "quantidade": 2,
+            "data": "02/07/2026 15:06:19",
+            "ativo": true
+        },
+        {
+            "id": 25,
+            "peca_id": 1,
+            "unidade_id": 1,
+            "quantidade": 2,
+            "data": "02/07/2026 15:15:53",
+            "ativo": true
+        },
+        {
+            "id": 26,
+            "peca_id": 1,
+            "unidade_id": 1,
+            "quantidade": 2,
+            "data": "02/07/2026 15:16:42",
+            "ativo": true
+        },
+        {
+            "id": 27,
+            "peca_id": 1,
+            "unidade_id": 1,
+            "quantidade": 2,
+            "data": "02/07/2026 15:17:14",
+            "ativo": true
         }
     ]
 }
