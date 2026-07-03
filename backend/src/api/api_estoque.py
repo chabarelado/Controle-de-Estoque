@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+
 class Api:
     def __init__(self):
         base_dir = Path(__file__).resolve().parent.parent

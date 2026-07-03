@@ -4,7 +4,7 @@
             "id": 1,
             "codigo": "P001",
             "nome": "Fonte 550W PK PCWELLS",
-            "quantidade": 14
+            "quantidade": 8
         },
         {
             "id": 2,
@@ -47,6 +47,12 @@
             "codigo": "P008",
             "nome": "Memoria RAM 4GB DDR3",
             "quantidade": 1
+        },
+        {
+            "id": 9,
+            "codigo": "MOU001",
+            "nome": "Mouse Gamer",
+            "quantidade": 10
         }
     ],
     "unidades": [
@@ -320,6 +326,30 @@
             "unidade_id": 1,
             "quantidade": 2,
             "data": "02/07/2026 15:17:14",
+            "ativo": true
+        },
+        {
+            "id": 28,
+            "peca_id": 1,
+            "unidade_id": 1,
+            "quantidade": 2,
+            "data": "03/07/2026 08:52:58",
+            "ativo": true
+        },
+        {
+            "id": 29,
+            "peca_id": 1,
+            "unidade_id": 1,
+            "quantidade": 2,
+            "data": "03/07/2026 08:59:51",
+            "ativo": true
+        },
+        {
+            "id": 30,
+            "peca_id": 1,
+            "unidade_id": 1,
+            "quantidade": 2,
+            "data": "03/07/2026 08:59:58",
             "ativo": true
         }
     ]

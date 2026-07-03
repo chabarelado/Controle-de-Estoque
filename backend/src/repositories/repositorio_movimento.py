@@ -1,4 +1,4 @@
-from api.api import Api
+from api.api_estoque import Api
 
 class RepositorioMovimentacao:
     def __init__(self):

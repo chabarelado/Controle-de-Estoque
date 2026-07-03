@@ -1,4 +1,4 @@
-from api.api import Api
+from api.api_estoque import Api
 class RepositorioPecas:
     def __init__(self):
         self.api = Api()
@@ -76,7 +76,7 @@ class RepositorioPecas:
             dados = self.api.dados
 
         for peca in dados["pecas"]:
-            if peca["codigo"] == codigo:
+            if str(peca["codigo"]).lower == str(codigo).lower():
                 return peca
     
         return None
@@ -89,7 +89,7 @@ class RepositorioPecas:
             dados = self.api.dados
 
         for peca in dados["pecas"]:
-            if peca["id"] == id:
+            if int(peca["id"]) == int(id):
                 return peca
 
         return None
@@ -101,7 +101,7 @@ class RepositorioPecas:
             dados = self.api.dados
         
         for peca in dados["pecas"]:
-            if peca["nome"].lower() == nome.lower():
+            if str(peca["nome"]).lower() == str(nome).lower():
                 return peca
             
         return None

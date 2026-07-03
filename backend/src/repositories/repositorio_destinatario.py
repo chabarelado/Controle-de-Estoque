@@ -1,4 +1,4 @@
-from api.api import Api
+from api.api_estoque import Api
 
 class RepositorioDestinatario:
     def __init__(self):
@@ -81,7 +81,7 @@ class RepositorioDestinatario:
             dados = self.api.dados
 
         for destinatario in dados["unidades"]:
-            if destinatario["id"] == id:
+            if int(destinatario["id"]) == int(id):
                 return destinatario
         
         return None
@@ -93,7 +93,7 @@ class RepositorioDestinatario:
             dados = self.api.dados
         
         for destinatario in dados["unidades"]:
-            if destinatario["nome"].lower() == nome.lower():
+            if str(destinatario["nome"]).lower() == str(nome).lower():
                 return destinatario
             
         return None

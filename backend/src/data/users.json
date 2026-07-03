@@ -1,0 +1,11 @@
+{
+    "usuarios":[
+        {
+            "id":1,
+            "nome":"Administrador",
+            "login":"admin",
+            "senha":"...",
+            "admin":true
+        }
+    ]
+}
