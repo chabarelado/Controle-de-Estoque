@@ -4,11 +4,12 @@ class RepositorioDestinatario:
     def __init__(self):
         self.api = Api()
 
-    def adicionar(self, novo_destinatario):
-        if not self.api.ler_json():
-            return False
+    def adicionar(self, novo_destinatario, dados=None):
+        if dados is None:
+            if not self.api.ler_json():
+                return False
 
-        dados = self.api.dados
+            dados = self.api.dados
         
         if self.buscar_por_id(novo_destinatario["id"], dados):
             return False
